@@ -19,14 +19,15 @@ async fn main() {
     let jwt = Jwt::new(settings.jwt);
 
     let database_uri = dotenv!("DATABASE_URL");
+    let port = dotenv!("PORT");
     let database: sea_orm::prelude::DatabaseConnection = connect_db(database_uri).await.unwrap();
 
     let routes = routes::create_routes(database, jwt);
 
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:13000")
+    let listener = tokio::net::TcpListener::bind(format!("0.0.0.0:{}", port))
         .await
         .unwrap();
 
-    println!("Server running on port 13000");
+    println!("Server running on port {}", port);
     axum::serve(listener, routes).await.unwrap();
 }
