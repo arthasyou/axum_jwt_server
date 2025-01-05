@@ -1,5 +1,5 @@
 [package]
-name = "llm"
+name = "axum_jwt_server"
 version = "0.1.0"
 edition = "2021"
 
@@ -20,5 +20,5 @@ serde = { version = "1.0.217", features = ["derive"] }
 serde_with = "3.12.0"
 tokio = { version = "1.42.0", features = ["full"] }
 tower-http = { version = "0.6.2", features = ["cors"] }
-validator = { version = "0.18.1", features = ["derive"] }
+validator = { version = "0.19", features = ["derive"] }
 serde_json = "1"
