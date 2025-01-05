@@ -27,5 +27,6 @@ async fn main() {
         .await
         .unwrap();
 
+    println!("Server running on port 13000");
     axum::serve(listener, routes).await.unwrap();
 }
